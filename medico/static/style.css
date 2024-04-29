@@ -1,0 +1,123 @@
+* {
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  /* height: 100vh; */
+  margin: 20px;
+  padding: 0;
+  background-image: url(../static/bg.jpg);
+  background-size: cover; /* Cover the entire background */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Do not repeat the background image */
+}
+
+.appname,
+h1 {
+  color: #ff407d;
+}
+
+.signup_title,
+h2 {
+  color: #1b3c73;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  border: 1px solid;
+  padding: 20px;
+  border-radius: 12px;
+  width: 500px;
+  margin: 0 auto;
+}
+
+label {
+  /* color: white; */
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  display: block;
+  margin-bottom: 5px;
+}
+
+textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+}
+
+.search-btn {
+  margin-left: 10px;
+}
+
+.helptext {
+  display: none;
+}
+
+button {
+  background-color: #1b3c73;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.login-btn {
+  background-color: #1b3c73;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr {
+  background-color: #f9f9f9;
+}
+
+.edit-btn {
+  background-color: green !important;
+  padding: 5px 10px;
+  color: white;
+  text-decoration: none;
+  font-size: small;
+  border-radius: 5px;
+}
+
+.delete-btn {
+  background-color: red !important;
+  padding: 5px 10px;
+  color: white;
+  text-decoration: none;
+  font-size: small;
+  border-radius: 5px;
+}

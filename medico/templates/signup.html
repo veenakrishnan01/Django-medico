@@ -1,0 +1,16 @@
+{% extends 'layout/app-layout.html' %} {% block 'content' %}
+<h1 class="appname">MEDICO</h1>
+<h2 class="signup_title">Sign Up</h2>
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Create an account</button>
+  <h5>Or</h5>
+  <a href="login" class="login-btn">Login</a>
+</form>
+<style>
+  ul,
+  li {
+    display: none;
+  }
+</style>
+{% endblock %}

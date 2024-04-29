@@ -1,0 +1,8 @@
+{%extends 'layout/app-layout.html'%} {%block 'content' %}
+<h1>MEDICO</h1>
+<h2>Create Product</h2>
+<form action="" method="post">
+  {% csrf_token %} {{form.as_div}}
+  <button value="submit" type="submit">Create</button>
+</form>
+{%endblock%}

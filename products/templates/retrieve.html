@@ -1,0 +1,106 @@
+{%extends 'layout/app-layout.html'%} {%block 'content'%}
+
+<h1 class="appname">MEDICO</h1>
+
+<div class="container mt-5 mb-3">
+  <form method="GET" action="" class="search-box">
+    <input type="text" name="search" placeholder="Search" />
+    <button type="submit" class="search-btn">Search</button>
+  </form>
+</div>
+<h2 class="container mb-4">List of Medicines</h2>
+
+<a href="{%url 'createproduct' %}" class="login-btn">Add medicine</a>
+<br />
+<table border="1">
+  <tr>
+    <th>Product_id</th>
+    <th>Product_name</th>
+    <th>Product_price</th>
+    <th colspan="2">Actions</th>
+  </tr>
+
+  {%for products in product_list%}
+  <tr>
+    <td>{{products.id}}</td>
+    <td>{{ products.name }}</td>
+    <td>{{ products.price }}</td>
+
+    <td>
+      <a
+        href="{%url 'updateproduct' products.id %}"
+        class="edit-btn"
+        value="edit"
+        type="submit"
+        >Edit</a
+      >
+    </td>
+    <td>
+      <a
+        class="btn btn-danger"
+        data-toggle="modal"
+        value="edit"
+        type="submit"
+        data-target="#myModal{{ products.id }}"
+        >Delete</a
+      >
+
+      <div class="modal" id="myModal{{ products.id }}">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+              Are you sure you want to delete {{products.name}}?
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <form
+                action="{% url 'deleteproduct' products.id %}"
+                method="post"
+              >
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Confirm</button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-dismiss="modal"
+                  id="cancel"
+                >
+                  cancel
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+<div>
+  <ul class="navbar-nav ms-auto">
+    {% if user.is_authenticated %}
+    <li class="nav-item me-2">
+      <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button
+          type="submit"
+          class="logout"
+          style="border: none; background-color: blue; color: white"
+        >
+          Logout
+        </button>
+      </form>
+      {% endif %}
+    </li>
+  </ul>
+</div>
+{%endblock%}
